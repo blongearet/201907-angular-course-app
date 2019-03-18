@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 export interface Product {
-  id: string
+  id: number
   productName: string
   productCode: string
   releaseDate: string
@@ -82,7 +82,7 @@ export class ProductListComponent {
     })
   }
 
-  public toggleImage(): boolean {
+  public toggleImage(): void {
     this.showImage = !this.showImage
   }
 
