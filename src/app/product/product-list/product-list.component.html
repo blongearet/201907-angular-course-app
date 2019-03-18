@@ -25,9 +25,21 @@
     <tbody>
       <tr *ngFor="let product of products">
         <td>#{{ product.ID }}</td>
-        <td *ngIf="showImage">
-          <img [src]="product.imageUrl" [width]="product.isBigZoom ? 150 : 30" (click)="product.isBigZoom = !product.isBigZoom" />
+        <td *ngIf="showImage && !isCaroussel(product); else caroussel">
+          <img [src]="product.imageUrl"
+               [width]="product.isBigZoom ? 150 : 30"
+               (click)="product.isBigZoom = !product.isBigZoom" />
         </td>
+        <ng-template #caroussel>
+          <td *ngIf="showImage">
+            <img [src]="product.imageUrl[product.currentImageIndex]"
+                 [width]="product.isBigZoom ? 150 : 30"
+                 (click)="product.isBigZoom = !product.isBigZoom" />
+            <div>
+              <a href="javascript:;" (click)="moveCaroussel(product, -1)">Prev.</a> - <a href="javascript:;" (click)="moveCaroussel(product, 1)">Next.</a>
+            </div>
+          </td>
+        </ng-template>
         <td>{{ product.productName }}</td>
         <td>{{ product.productCode }}</td>
         <td>{{ product.releaseDate }}</td>
