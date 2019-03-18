@@ -1,3 +1,42 @@
-<p>
-  product-list works!
-</p>
+<h3>Product list</h3>
+<div>
+  <label for="search">Search: </label>
+  <input id="search" type="text" [(ngModel)]="searchTerm" placeholder="filter product list" />
+</div>
+<div>
+  <button (click)="toggleImage()">
+    {{ showImage ? 'Hide' : 'Show' }} images
+  </button>
+  <table *ngIf="getFilteredProducts() as products; else noProduct"
+         border="1"
+         cellspacing="0"
+         cellpadding="10">
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td *ngIf="showImage">Image</td>
+        <td>Name</td>
+        <td>Code</td>
+        <td>Release date</td>
+        <td>Price</td>
+        <td>Rating</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>#{{ product.ID }}</td>
+        <td *ngIf="showImage">
+          <img [src]="product.imageUrl" width="30px" />
+        </td>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.productCode }}</td>
+        <td>{{ product.releaseDate }}</td>
+        <td>{{ product.price }}€</td>
+        <td>{{ product.starRating }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #noProduct>
+    <h4>⛔ No product available! You can save 💵</h4>
+  </ng-template>
+</div>
