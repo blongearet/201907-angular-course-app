@@ -1,9 +1,13 @@
 <h3>Product list</h3>
 <div>
+  <label for="search">Search: </label>
+  <input id="search" type="text" [(ngModel)]="searchTerm" placeholder="filter product list" />
+</div>
+<div>
   <button (click)="toggleImage()">
     {{ showImage ? 'Hide' : 'Show' }} images
   </button>
-  <table *ngIf="products.length > 0; else noProduct"
+  <table *ngIf="getFilteredProducts() as products; else noProduct"
          border="1"
          cellspacing="0"
          cellpadding="10">

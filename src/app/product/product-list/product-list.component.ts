@@ -18,6 +18,7 @@ export interface Product {
 })
 export class ProductListComponent {
 
+  public searchTerm: string = ''
   public showImage: boolean = true
   public displayImage: boolean = true
   public products: Product[] = [
@@ -72,6 +73,14 @@ export class ProductListComponent {
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
     }
   ]
+
+  public getFilteredProducts(): Product[] {
+    const term = this.searchTerm.toLowerCase()
+    return this.products.filter(product => {
+      const name = product.productName.toLowerCase()
+      return name.indexOf(term) > -1
+    })
+  }
 
   public toggleImage(): boolean {
     this.showImage = !this.showImage
