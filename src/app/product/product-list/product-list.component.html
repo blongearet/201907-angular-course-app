@@ -26,7 +26,7 @@
       <tr *ngFor="let product of products">
         <td>#{{ product.ID }}</td>
         <td *ngIf="showImage">
-          <img [src]="product.imageUrl" width="30px" />
+          <img [src]="product.imageUrl" [width]="product.isBigZoom ? 150 : 30" (click)="product.isBigZoom = !product.isBigZoom" />
         </td>
         <td>{{ product.productName }}</td>
         <td>{{ product.productCode }}</td>
