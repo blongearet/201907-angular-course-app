@@ -18,6 +18,7 @@ export interface Product {
 })
 export class ProductListComponent {
 
+  public showImage: boolean = true
   public displayImage: boolean = true
   public products: Product[] = [
     {
@@ -70,6 +71,10 @@ export class ProductListComponent {
         "starRating": 4.6,
         "imageUrl": "http://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
     }
-]
+  ]
+
+  public toggleImage(): boolean {
+    this.showImage = !this.showImage
+  }
 
 }
