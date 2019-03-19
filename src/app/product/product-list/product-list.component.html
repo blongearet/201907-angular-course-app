@@ -33,7 +33,7 @@
         <td>{{ product.releaseDate }}</td>
         <td>{{ product.price }}€</td>
         <td>
-          <app-star></app-star>
+          <app-star [rating]="product.starRating"></app-star>
         </td>
       </tr>
     </tbody>

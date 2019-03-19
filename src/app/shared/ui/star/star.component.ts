@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-star',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./star.component.scss']
 })
 export class StarComponent implements OnInit {
+
+  @Input() public rating: number = 0
 
   constructor() { }
 
