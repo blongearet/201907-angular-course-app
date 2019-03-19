@@ -78,4 +78,8 @@ export class ProductListComponent {
     this.showImage = !this.showImage
   }
 
+  public updateStarRating(product: Product, value: number): void {
+    product.starRating = value
+  }
+
 }
