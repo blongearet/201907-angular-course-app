@@ -24,7 +24,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of filteredProducts">
-        <td>#{{ product.ID }}</td>
+        <td>#{{ product.id }}</td>
         <td *ngIf="showImage">
           <img [src]="product.imageUrl" width="30px" />
         </td>
@@ -32,7 +32,9 @@
         <td>{{ product.productCode }}</td>
         <td>{{ product.releaseDate }}</td>
         <td>{{ product.price }}€</td>
-        <td>{{ product.starRating }}</td>
+        <td>
+          <app-star></app-star>
+        </td>
       </tr>
     </tbody>
   </table>
