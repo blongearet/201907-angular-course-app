@@ -1,3 +1,5 @@
-<div *ngFor="let value of [1, 2, 3, 4, 5]" [class.filled]="rating > value"></div>
+<div *ngFor="let value of [1, 2, 3, 4, 5]"
+     [class.filled]="rating > value"
+     (click)="onClick(value)"></div>
 
 <p>Rating: {{ rating }}</p>
