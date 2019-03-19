@@ -7,7 +7,7 @@
   <button (click)="toggleImage()">
     {{ showImage ? 'Hide' : 'Show' }} images
   </button>
-  <table *ngIf="getFilteredProducts() as products; else noProduct"
+  <table *ngIf="products | productSearch:searchTerm as filteredProducts; else noProduct"
          border="1"
          cellspacing="0"
          cellpadding="10">
@@ -23,7 +23,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of products">
+      <tr *ngFor="let product of filteredProducts">
         <td>#{{ product.ID }}</td>
         <td *ngIf="showImage">
           <img [src]="product.imageUrl" width="30px" />

@@ -74,14 +74,6 @@ export class ProductListComponent {
     }
   ]
 
-  public getFilteredProducts(): Product[] {
-    const term = this.searchTerm.toLowerCase()
-    return this.products.filter(product => {
-      const name = product.productName.toLowerCase()
-      return name.indexOf(term) > -1
-    })
-  }
-
   public toggleImage(): void {
     this.showImage = !this.showImage
   }
