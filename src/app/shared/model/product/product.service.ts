@@ -66,4 +66,8 @@ export class ProductService {
     this.products = productFromAPI.map(product => new Product(product))
 
   }
+
+  public getProducts(): Product[] {
+    return [...this.products]
+  }
 }
