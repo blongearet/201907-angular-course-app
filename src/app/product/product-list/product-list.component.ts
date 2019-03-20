@@ -1,15 +1,5 @@
 import { Component } from '@angular/core';
-
-export interface Product {
-  id: number
-  productName: string
-  productCode: string
-  releaseDate: string
-  description: string
-  price: number
-  starRating: number
-  imageUrl:string
-}
+import {IProduct} from '../../shared/model/product/product';
 
 @Component({
   selector: 'app-product-list',
@@ -20,8 +10,7 @@ export class ProductListComponent {
 
   public searchTerm: string = ''
   public showImage: boolean = true
-  public displayImage: boolean = true
-  public products: Product[] = [
+  public products: IProduct[] = [
     {
         "id": 1,
         "productName": "Leaf Rake",
