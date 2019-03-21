@@ -7,7 +7,7 @@
   <button (click)="toggleImage()">
     {{ showImage ? 'Hide' : 'Show' }} images
   </button>
-  <table *ngIf="products | productSearch:searchTerm as filteredProducts; else noProduct"
+  <table *ngIf="products | async | productSearch:searchTerm as filteredProducts; else noProduct"
          border="1"
          cellspacing="0"
          cellpadding="10">

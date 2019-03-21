@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Product} from '../../shared/model/product/product';
 import {ProductService} from '../../shared/model/product/product.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -11,7 +12,7 @@ export class ProductListComponent {
 
   public searchTerm: string = ''
   public showImage: boolean = true
-  public products: Product[]
+  public products: Observable<Product[]>
 
   constructor(productService: ProductService) {
     this.products = productService.getProducts()
