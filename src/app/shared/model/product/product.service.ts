@@ -20,11 +20,18 @@ export class ProductService {
   }
 
   public fetch(): void {
-    this.http.get('http://localhost:3000/products')
+    // Create a const variable
+    this.http
+    // Make a GET request to the server
+      .get('http://localhost:3000/products')
+      // Create a pipe to transform the data
       .pipe(
+        // For each event (here only once cause it's an HTTP request) we transform the data
         map((products: IProduct[]) => {
+          // From a IProduct[] to a Product[] by instanciate the Product model for each item of the collection
           return products.map((product: IProduct) => new Product(product))
         }),
+        // It's a no-op... We just console log some things :)
         tap((products: Product[]) => console.log(`Here we got ${products.length} products!`))
       )
       .subscribe((products: Product[]) => this.products.next(products))
