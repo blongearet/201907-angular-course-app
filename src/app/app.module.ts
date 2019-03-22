@@ -12,6 +12,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { ProductSearchPipe } from './product/product-search.pipe';
 import {HttpClientModule} from '@angular/common/http';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { ProductComponent } from './product/product/product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
     ProductEditComponent,
     WelcomeComponent,
     ProductSearchPipe,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
