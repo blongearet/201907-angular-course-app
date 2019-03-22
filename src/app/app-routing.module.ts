@@ -5,12 +5,12 @@ import {ProductComponent} from './product/product/product.component';
 import {ProductListComponent} from './product/product-list/product-list.component';
 import {ProductEditComponent} from './product/product-edit/product-edit.component';
 import {WelcomeComponent} from './welcome/welcome.component';
-import {HeaderComponent} from './layout/header/header.component';
 import {IdIsValidIdGuard} from './shared/guard/id-is-valid-id-guard.service';
+import {LoginComponent} from './auth/login/login.component';
 
 const routes: Routes = [
-  {path: '', component: HeaderComponent, outlet: 'header'},
   {path: '', pathMatch: 'full', component: WelcomeComponent},
+  {path: 'login', component: LoginComponent},
   {
     path: 'products',
     component: ProductComponent, children: [
