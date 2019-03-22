@@ -13,6 +13,7 @@ import { ProductSearchPipe } from './product/product-search.pipe';
 import {HttpClientModule} from '@angular/common/http';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductComponent } from './product/product/product.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProductComponent } from './product/product/product.component';
     WelcomeComponent,
     ProductSearchPipe,
     ProductDetailComponent,
-    ProductComponent
+    ProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
