@@ -6,6 +6,7 @@ import {ProductListComponent} from './product/product-list/product-list.componen
 import {ProductEditComponent} from './product/product-edit/product-edit.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {HeaderComponent} from './layout/header/header.component';
+import {IdIsValidIdGuard} from './shared/guard/id-is-valid-id-guard.service';
 
 const routes: Routes = [
   {path: '', component: HeaderComponent, outlet: 'header'},
@@ -14,8 +15,8 @@ const routes: Routes = [
     path: 'products',
     component: ProductComponent, children: [
       { path: '', component: ProductListComponent},
-      { path: ':id/edit', component: ProductEditComponent},
-      { path: ':id', component: ProductDetailComponent}
+      { path: ':id/edit', component: ProductEditComponent, canActivate: [IdIsValidIdGuard]},
+      { path: ':id', component: ProductDetailComponent, canActivate: [IdIsValidIdGuard]}
     ]
   },
   { path: '**', pathMatch: 'full', redirectTo: ''}
