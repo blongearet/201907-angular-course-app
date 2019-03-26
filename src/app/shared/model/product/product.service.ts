@@ -40,4 +40,17 @@ export class ProductService {
   public getProducts(): Observable<Product[]> {
     return this.products$
   }
+
+  public getProductById(id: number): Observable<Product> {
+    // We retrieve Product[]
+    return this.products$.pipe(
+      // We transform the collection to the product (by ID)
+      map((products: Product[]) => {
+        // Find the requested product (by ID)
+        return products.find((product: Product) => {
+          return product.id === id
+        })
+      })
+    )
+  }
 }
