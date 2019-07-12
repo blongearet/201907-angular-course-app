@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   login() {
-    this.authService.isLogged = true
+    this.authService.login().subscribe()
     this.router.navigateByUrl('/')
   }
 
