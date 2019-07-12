@@ -11,6 +11,10 @@
   </div>
 
   <p>
+    <button [routerLink]="['edit']">Edit #{{ product.id }} {{ product.productName }}</button>
+  </p>
+
+  <p>
     <button [routerLink]="['..']">Go back to Product List</button>
     <button [routerLink]="['/products', product.id + 1]">Go Next product!</button>
   </p>

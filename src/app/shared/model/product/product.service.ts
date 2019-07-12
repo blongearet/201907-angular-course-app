@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {IProduct, Product} from './product';
 import {HttpClient} from '@angular/common/http';
-import {map, tap} from 'rxjs/operators';
+import {filter, map, tap} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
@@ -50,7 +50,14 @@ export class ProductService {
         return products.find((product: Product) => {
           return product.id === id
         })
-      })
+      }),
+      filter(product => product !== undefined)
     )
   }
+
+  public save(product: IProduct) {
+    this.http.put(`http://localhost:3000/products/${product.id}`, product)
+      .subscribe(product => this.fetch())
+  }
+
 }

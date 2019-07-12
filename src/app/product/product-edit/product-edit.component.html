@@ -1,3 +1,61 @@
-<p>
-  product-edit works!
-</p>
+<form [formGroup]="productForm" (ngSubmit)="save()">
+
+  <p>
+    <label>
+      ID: <input type="text" disabled formControlName="id" />
+    </label>
+  </p>
+
+  <p>
+    <label>
+      Name: <input type="text" formControlName="productName" />
+    </label>
+  </p>
+
+  <p>
+    <label>
+      Code: <input type="text" formControlName="productCode" />
+    </label>
+  </p>
+
+  <p>
+    <label>
+      Release Date: <input type="text" formControlName="releaseDate" />
+    </label>
+  </p>
+
+  <p>
+    <label>
+      Description:<br/>
+      <textarea formControlName="description"></textarea>
+    </label>
+  </p>
+
+  <p>
+    <label>
+      Price: <input type="number" formControlName="price" />
+    </label>
+  </p>
+
+  <p>
+    <label>
+      Rating: <input type="number" formControlName="starRating" />
+    </label>
+  </p>
+
+  <p>
+    <label>
+      Image URL: <input type="string" formControlName="imageUrl" />
+    </label>
+  </p>
+
+  <p>
+    <button type="submit" [disabled]="productForm.invalid">Envoi le pâté!</button>
+  </p>
+
+</form>
+
+<pre>
+  {{ productForm.valid }}
+  {{ productForm.get('price').status }}
+</pre>
